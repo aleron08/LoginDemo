@@ -14,12 +14,15 @@ namespace DAL
         public Model.User findUser(string account)
         {
             Model.User user = new Model.User();
-            string sql = "SELECT *  FROM user WHERE account=" + account;
+            string sql = "SELECT *  FROM [login_demo].[dbo].[user] WHERE [account]= '" + account +"'";
             //通过DBUtil类查询并返回结果到DataTable中
             DataTable dataTable = DBUtil.SQLConnect(sql);
-            //从DataTable中获取账号密码
-            user.account = dataTable.Rows[0]["account"].ToString().Trim();
-            user.pwd = dataTable.Rows[0]["pwd"].ToString().Trim();
+            if (dataTable.Rows.Count > 0)
+            {
+                //从DataTable中获取账号密码
+                user.account = dataTable.Rows[0]["account"].ToString().Trim();
+                user.pwd = dataTable.Rows[0]["pwd"].ToString().Trim();
+            }
             return user;
         }
 

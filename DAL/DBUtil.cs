@@ -11,14 +11,6 @@ namespace DAL
     class DBUtil
 
     {
-        //资源名称
-        public static string sourceName = "";
-        //用户名称
-        public static string userName = "aleron08";
-        //用户密码
-        public static string pwd = "cold08";
-        //连接的数据库名称
-        public static string database = "login_demo";
         //连接数据库
         static SqlConnection conn;
         //数据表
@@ -27,7 +19,7 @@ namespace DAL
         public static DataTable SQLConnect(string sql)
         {
             //拼接数据库连接串
-            string connstr = "data source=" + sourceName + ";user=" + userName + ";pwd=" + pwd + ";database=" + database;
+            string connstr = "Data Source=CN5CG83930QT;Initial Catalog=login_demo;Integrated Security=True";
             //新建数据库连接
             conn = new SqlConnection(connstr);
 
