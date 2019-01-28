@@ -19,7 +19,7 @@ namespace DAL
             DataTable dataTable = DBUtil.SQLConnect(sql);
             if (dataTable.Rows.Count > 0)
             {
-                //从DataTable中获取账号密码
+                //从DataTable中获取账号密码.
                 user.account = dataTable.Rows[0]["account"].ToString().Trim();
                 user.pwd = dataTable.Rows[0]["pwd"].ToString().Trim();
             }
